@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size:28px;
+        }
+        #div1{
+            margin: 100px auto;
+            width: 700px;
+            height: 50px;
+            line-height:50px;
+            text-align: center;
+            border:1px solid #008CD7;
+            background:-webkit-linear-gradient(top left,#08BECE,#9ACD32
+            ,#FFE0E9);
+
+            color:yellow;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="div1"></div>
+
+<script>
+    //获取当前电脑自己的时间:不能做重要的用途，例如淘宝秒杀
+    //国外周日是本周的第一天
+
+
+    //var time=new Date();
+    //console.log(time);//Mon Jun 12 2017 01:30:25 GMT+0800 (中国标准时间)
+    //返回的是时间格式类型的数据，它是对象数据类型的数据
+
+    //2015年05月24日 星期日  15时31分27秒
+
+    //日期格式化
+
+    function formatTime(){
+        var time = new Date();
+        var year=time.getFullYear();//年
+        var month=time.getMonth()+1;//月0-11代表我们的1-12月
+        var day=time.getDate();
+        var w=time.getDay();//0-6代表周日-周六
+        var wStr="日一二三四五六";
+        var week=wStr.charAt(w);
+        var hours=time.getHours();
+        var minutes=time.getMinutes();
+        var seconds=time.getSeconds();
+
+        return year+"年"+zero(month)+"月"+zero(day)+"日 星期"+
+            week+" "+zero(hours)+"时"+zero(minutes)+"分"+zero(seconds)+"秒";
+
+    }
+
+    function zero(value) {
+        return value<10?"0"+value:value;
+    }
+
+    var oDiv=document.getElementById('div1');
+
+    var str=formatTime();
+    oDiv.innerHTML="北京时间:"+str;
+
+    var timer=window.setInterval(function(){
+        var str=formatTime();
+        oDiv.innerHTML="北京时间:"+str;
+    },1000);
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

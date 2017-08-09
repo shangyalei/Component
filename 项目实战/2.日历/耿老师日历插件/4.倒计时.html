@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size:28px;
+        }
+        #div1{
+            margin: 100px auto;
+            width: 700px;
+            height: 50px;
+            line-height:50px;
+            text-align: center;
+            border:1px solid #008CD7;
+            background:-webkit-linear-gradient(top left,#08BECE,#9ACD32
+            ,#FFE0E9);
+
+            color:yellow;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div id="div1"></div>
+
+<script>
+    //把时间格式的字符串变成我们的标准时间格式
+    //var tar=new Date("2015-05-24 17:59:59");
+    //对字符串的格式有要求
+    //中间用-在IE6-8下不兼容，需要改成"/"
+    //var tar=new Date("2015/05/24 17:59:59");
+
+
+    //getTime();获取距离1970年1月1日午夜00:00之间的毫秒差
+
+
+
+
+    function getSpanTime() {
+
+        var tarTime=new Date("2017/06/12 06:00:00");
+
+        var nowTime=new Date();
+
+        var tarSpan=tarTime.getTime();
+
+        var nowSpn=nowTime.getTime();
+
+        var diffTime=tarSpan-nowSpn;//当前时间，距离目标时间的毫秒差
+
+        //接下来我们用毫秒差算出包含多数个小时、分钟、秒就好了
+
+        //总毫秒中包含多少个小时
+        var hour=Math.floor(diffTime/(1000*60*60));
+        //算出当前这几个小时占了多少毫秒
+        var hourMs=hour*60*60*1000;
+        //接下来算分钟的时候，需要把小时占用的减去
+        var spanMs=diffTime-hourMs;
+
+        //开始算spanMs中包含多少分钟
+        var minute=Math.floor(spanMs/(1000*60));
+
+        //算出这么多分钟占用多少毫秒
+        var minuteMs=minute*60*1000;
+
+        //算秒的时候把分钟占用的也减去
+        spanMs=spanMs-minuteMs;
+
+        //算剩下的包含过时秒
+        var second=Math.floor(spanMs/1000);
+
+        return zero(hour)+":"+zero(minute)+":"+zero(second);
+
+    }
+
+    function zero(value) {
+        return value<10?"0"+value:value;
+    }
+
+    var oDiv=document.getElementById('div1');
+    var str=getSpanTime();
+    oDiv.innerHTML="距离下课"+str;
+
+    var timer=window.setInterval(function(){
+        var str=getSpanTime();
+        oDiv.innerHTML="距离下课"+str;
+
+    },1000);
+
+
+</script>
+
+
+</body>
+</html>

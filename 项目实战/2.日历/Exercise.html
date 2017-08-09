@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1"></div>
+
+<script>
+
+    function zero(value){
+        return value<10?"0"+value:value;
+    }
+
+    function formatTime(){
+       var d= new Date();
+       var year= d.getFullYear();
+       var month=d.getMonth()+1;
+       var date=d.getDate();
+       var w=d.getDay();
+       var wStr="日一二三四五六";
+       var week=wStr.charAt(w);
+       var hours=d.getHours();
+       var minutes=d.getMinutes();
+       var seconds=d.getSeconds();
+        return year+"年"+zero(month)+"月"+zero(date)+"日 星期"+week+" "+zero(hours)+"时"+zero(minutes)+"分"+zero(seconds)+"秒";
+
+    }
+
+
+
+
+
+    var oDiv=document.getElementById('div1');
+
+    var str=formatTime();
+    oDiv.innerHTML="北京时间:"+str;
+
+    var timer=window.setInterval(function(){
+        var str=formatTime();
+        oDiv.innerHTML="北京时间:"+str;
+    },1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

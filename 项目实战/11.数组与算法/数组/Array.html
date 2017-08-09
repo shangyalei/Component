@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    //JS数据类型分为基本数据类型和引用数据类型
+    //基本数据类型:Number、String、null、undefined、Boolean
+    //应用数据类型:Object、Function
+    //Object又细分为-->{}、[]、/^$/、Date
+
+    //每一个对象都是由属性名和属性值组成的
+    //数组的属性名是下标，属性值是数组项
+
+    //length属性代表数组的长度
+    //这个属性是属于当前数组的不可枚举的属性
+
+    //数组也是对象，它和对象的操作是一样的
+
+
+
+
+
+    var ary=[12,23,34,45];
+    console.dir(ary);
+    console.log(ary.length);
+    //访问-获取
+    var item=ary[0];
+
+    //数组遍历 for
+    for(var i=0;i<ary.length;i++){
+        console.log(ary[i]);
+    }
+    //数组遍历for...in它只能遍历可枚举的属性
+    //它是用来遍历对象所有的属性名和属性值的
+    //它是无法遍历ary.length这个属性的
+    for(var key in ary){
+        console.log(ary[key]);
+    }
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

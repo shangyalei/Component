@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #tab{
+            width: 500px;
+        }
+        .tab li.option{
+            list-style: none;
+            float: left;
+            width: 60px;
+            height: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 10px;
+            background: #6CC;
+            cursor:pointer;
+        }
+        .tab li.selectedLi{
+            background: #ddd;
+        }
+        .tab div.content{
+            width: 500px;
+            height: 300px;
+            background: #ddd;
+            clear: both;
+            display: none;
+        }
+        .tab div.selectedDiv{
+            display: block;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div id="tab" class="tab">
+    <ul>
+        <li class="option selectedLi">选项一</li>
+        <li class="option">选项二</li>
+        <li class="option">选项三</li>
+        <li class="option">选项四</li>
+        <li class="option">选项五</li>
+    </ul>
+    <div class="content selectedDiv">内容一</div>
+    <div class="content">内容二</div>
+    <div class="content">内容三</div>
+    <div class="content">内容四</div>
+    <div class="content">内容五</div>
+</div>
+<script>
+    /* 第一种方法：使用循环*/
+    var oLis=document.getElementById('tab').getElementsByTagName('li');
+    var oDiv=document.getElementById('tab').getElementsByTagName('div');
+    function changeTab(index) {
+        for (var i = 0; i < oLis.length; i++) {
+            oLis[i].className='option';
+            oDiv[i].className='content';
+        }
+        oLis[index].className='option selectedLi';
+        oDiv[index].className='content selectedDiv';
+
+    }
+
+    for (var i = 0; i < oLis.length; i++) {
+        (function(i){
+            oLis[i].onclick=function(){
+                changeTab(i)
+            };
+        })(i);
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>

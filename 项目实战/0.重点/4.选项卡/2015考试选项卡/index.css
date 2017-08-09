@@ -1,0 +1,56 @@
+body,div,ul,li{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+ul,li{
+    list-style: none;
+}
+
+#tab{
+    margin: 10px auto 0;
+    width: 500px;
+}
+#tab ul{
+    position: relative;
+    top: 1px;
+}
+
+#tab ul li{
+    float: left;
+    width: 100px;
+    height: 30px;
+    line-height:30px;
+    text-align:center;
+    border:1px solid #dddddd;
+    margin-right:10px;
+    cursor:pointer;
+}
+
+#tab ul li.select{
+    background:darkcyan;
+}
+
+#tab div{
+    clear: both;
+    height: 100px;
+    line-height:100px;
+    text-align: center;
+    border:1px solid #ddd;
+    display: none;
+}
+
+#tab div.select{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+

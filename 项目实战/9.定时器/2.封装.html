@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    //用setTimeout实现setInterval的功能
+    //考点：定时器，递归
+
+    function fn(){
+        n++;
+        alert(n);
+        if(n>=2){
+            clearTimeout(timer);
+            return;//return两个作用：1：函数返回值，阻断程序执行的作用
+        }
+        var timer=setTimeout(fn,1000);
+    }
+
+
+
+</script>
+
+
+
+</body>
+</html>

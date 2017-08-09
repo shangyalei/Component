@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>选项卡之HTML结构和样式-1</title>
+    <style type="text/css">
+        .tabbedPanel{ width:500px; overflow:hidden; margin:10px auto;} /* 选项卡面板的整体结构样式 */
+        .tabbedGroup{ list-style:none; padding:0; margin:0; margin-left:10px; } /* 卡片组 */
+        .tab{ width:60px; height:2em; background:#09F; float:left; text-align:center; font-weight:bold; cursor:pointer; line-height:2em; font-size:16px; margin-right:10px;} /* 卡片 */
+        .selectedTab{ background:#ccc; } /* 被选中的卡片 */
+        .contentGroup{display:block; clear:both} /* 内容组 */
+        .content{ height:250px; background:#ccc; display:none;}      /* */
+        .selectedContent{ display:block;} /*  */
+        .high{color:orange;}
+    </style>
+</head>
+
+<body>
+<h1>组件化思想和常用工具方法库-dom库</h1>
+<div class=" tabbedPanel" >
+    <ul class="tabbedGroup">
+        <li class="tab selectedTab" >选项一</li>
+        <li class="tab">选项二</li>
+        <li class="tab high">选项三</li>
+        <li class="tab">选项四</li>
+        <li class="tab">选项五</li>
+    </ul>
+    <div class="contentGroup">
+        <div class=" content selectedContent" >内容部分一
+            <h3>珠峰培训课程体系</h3>
+            <ul>
+                <li>JavaScript</li>
+                <li>Node.js</li>
+                <li>移动端</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+            </ul>
+        </div>
+        <div class="content">二内容</div>
+        <div class="content">三内容</div>
+        <div class="content">四内容</div>
+        <div class="content">五内容</div>
+    </div>
+</div>
+<!--  分隔线  ------>
+
+<div class=" tabbedPanel" >
+    <ul class="tabbedGroup">
+        <li class="tab selectedTab" >选项一</li>
+        <li class="tab">选项二</li>
+        <li class="tab">选项三</li>
+        <li class="tab">选项四</li>
+        <li class="tab">选项五</li>
+    </ul>
+    <div class="contentGroup">
+        <div class=" content selectedContent" >内容部分一
+            <h3>珠峰培训课程体系</h3>
+            <ul>
+                <li>JavaScript</li>
+                <li>Node.js</li>
+                <li>移动端</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+            </ul>
+        </div>
+        <div class="content">二内容</div>
+        <div class="content">三内容</div>
+        <div class="content">四内容</div>
+        <div class="content">五内容</div>
+    </div>
+</div>
+<!--  分隔线  ------>
+
+<div class=" tabbedPanel" >
+    <ul class="tabbedGroup">
+        <li class="tab selectedTab" >选项一</li>
+        <li class="tab">选项二</li>
+        <li class="tab">选项三</li>
+        <li class="tab">选项四</li>
+        <li class="tab">选项五</li>
+    </ul>
+    <div class="contentGroup">
+        <div class=" content selectedContent" >内容部分一
+            <h3>珠峰培训课程体系</h3>
+            <ul>
+                <li>JavaScript</li>
+                <li>Node.js</li>
+                <li>移动端</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+            </ul>
+        </div>
+        <div class="content">二内容</div>
+        <div class="content">三内容</div>
+        <div class="content">四内容</div>
+        <div class="content">五内容</div>
+    </div>
+</div>
+<!--  分隔线  ------>
+
+<div class=" tabbedPanel" >
+    <ul class="tabbedGroup">
+        <li class="tab selectedTab" >选项一</li>
+        <li class="tab">选项二</li>
+        <li class="tab">选项三</li>
+        <li class="tab">选项四</li>
+        <li class="tab">选项五</li>
+    </ul>
+    <div class="contentGroup">
+        <div class=" content selectedContent" >内容部分一
+            <h3>珠峰培训课程体系</h3>
+            <ul>
+                <li>JavaScript</li>
+                <li>Node.js</li>
+                <li>移动端</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+            </ul>
+        </div>
+        <div class="content">二内容</div>
+        <div class="content">三内容</div>
+        <div class="content">四内容</div>
+        <div class="content">五内容</div>
+    </div>
+</div>
+<!--  分隔线  ------>
+
+<div class=" tabbedPanel" >
+    <ul class="tabbedGroup">
+        <li class="tab selectedTab" >选项一</li>
+        <li class="tab">选项二</li>
+        <li class="tab">选项三</li>
+        <li class="tab">选项四</li>
+        <li class="tab">选项五</li>
+    </ul>
+    <div class="contentGroup">
+        <div class=" content selectedContent" >内容部分一
+            <h3>珠峰培训课程体系</h3>
+            <ul>
+                <li>JavaScript</li>
+                <li>Node.js</li>
+                <li>移动端</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+            </ul>
+        </div>
+        <div class="content">二内容</div>
+        <div class="content">三内容</div>
+        <div class="content">四内容</div>
+        <div class="content">五内容</div>
+    </div>
+</div>
+<!--  分隔线  ------>
+</body>
+</html>
+<script  src="../lib/script.js"></script>
+<script>
+    //低耦合，可复用，无兼容性
+    function changeTab(){
+        //原来传参数的目的是：拿被点中的li的索引号
+        //获得索引号
+        var n=dom.getIndex(this);
+
+        //下一行是让当前被点中的元素加上selectedTab样式
+        //this.className="tab selectedTab";
+        dom.addClass(this,"selectedTab");
+        //以下同获得兄弟节点
+        var a=dom.siblings(this);
+        //以下是让兄弟节点去掉selectedTab样式，只留tab样式
+        for(var i=0;i<a.length;i++){
+            //a[i].className="tab";	
+            dom.removeClass(a[i],"selectedTab");
+        }
+        var parent=this.parentNode;
+        var contentGroup=dom.next(parent);
+        var contents=dom.child(contentGroup,"div");
+        for(var i=0;i<contents.length;i++){
+            dom.removeClass(contents[i],"selectedContent");
+        }
+        dom.addClass(contents[n],"selectedContent");
+    }
+
+    var oLis=dom.getClass("tab");
+
+    console.log(oLis);
+
+    for(var i=0;i<oLis.length;i++){
+        oLis[i].onclick=changeTab;
+    }
+
+</script>
+

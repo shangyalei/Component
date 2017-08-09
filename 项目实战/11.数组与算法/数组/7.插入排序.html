@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var ary=[9,8,7,6,5,4,3,2,1];
+    //倒着循环数组
+    for(var i=ary.length-1;i>=0;i--){
+//        console.log(ary[i]);
+    }
+
+
+    function insertSort(ary){
+        var newAry=[];
+        newAry.push(ary[0]);//先抓第一张牌
+        //依次把桌面上的第二张以及以后的拍抓到
+        for(var i=1;i<ary.length;i++){
+            var cur=ary[i];
+
+            //循环左手的牌
+            for(var j=newAry.length-1;j>=0;){
+                if(cur<newAry[j]){//当前新抓的牌比左手中的这张牌小，继续和newAry[j]前面的牌比
+                    j--;
+                    if(j===-1){
+                        newAry.unshift(cur);
+                    }
+                }else{//比它大插入到newAry[j+1]这张牌的前面
+                    newAry.splice(j+1,0,cur);
+                    j=-1;
+                }
+            }
+        }
+        return newAry;
+    }
+
+
+    var res=insertSort(ary);
+    console.log(res);
+
+
+</script>
+
+
+
+
+</body>
+</html>

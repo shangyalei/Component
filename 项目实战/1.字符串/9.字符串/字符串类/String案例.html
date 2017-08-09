@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //日期格式化 2015年05月24日 12时55分03秒
+    var time = "2015-5-24 12:55:3";
+
+    //补0,小于10补0
+    function zero(value){
+        return value<10?"0"+value:value;
+    }
+
+
+    //格式化时间字符串
+    function formatTime(timeStr) {
+        var ary=timeStr.split(" ");
+        var str1=ary[0];
+        var str2=ary[1];
+        var ary1=str1.split("-");
+        var ary2=str2.split(":");
+        return ary1[0]+"年"+zero(ary1[1])+"月"+zero(ary1[2])+"日"+zero(ary2[0])+"时"+zero(ary2[1])+"分"+zero(ary2[2])+"秒";
+    }
+
+    var res=formatTime(time);
+    console.log(time);
+    console.log(res);
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

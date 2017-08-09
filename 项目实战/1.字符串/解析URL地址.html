@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    //把下面的URL地址解析为一个对象
+    var str="http://image.baidu.com/search/detail?ct=503316480&z=0&ipn=false";
+   /* var reg=/([^?=&]+)=([^?=&]+)/g;
+
+    var obj={};
+
+    str.replace(reg,function($0,$1,$2){
+        obj[$1]=$2;
+    });*/
+
+
+    String.prototype.urlParse=function(){
+        var reg=/([^?&=]+)=([^?&=]+)/g;
+        var obj={};
+        this.replace(reg,function($0,$1,$2){
+            obj[$1]=$2;
+        });
+        return obj;
+    };
+
+    var obj=str.urlParse();
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

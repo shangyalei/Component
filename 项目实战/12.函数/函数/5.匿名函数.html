@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //匿名函数：没有函数名的函数
+
+    //JS中的匿名函数有两种方式:
+    //1)自执行函数:定义函数和执行函数一起完成
+    //2)前面加分隔符的作用是为了防止上面代码结束不加;
+
+    (function(num){
+        console.log(num);
+    })(100);
+
+    ~(function(){
+        console.log('hello world');
+    })();
+
+    -(function(){
+        console.log('hello world');
+    })();
+
+    !(function(){
+        console.log('hello world');
+    })();
+    +(function(){
+        console.log('hello world');
+    })();
+
+    //第二种是函数表达式
+    //把函数定义的部分当做一个值赋值给一个变量或则元素的某个行为
+    oDiv.onclick=function(){
+        //do some...
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>

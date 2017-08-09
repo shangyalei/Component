@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 150px;
+            height: 200px;
+            /*overflow: auto;让它出现滚动条*/
+            overflow: hidden;
+            background:chartreuse;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1">
+    豹猫（学名：Prionailurus bengalensis）：是产于亚洲的猫科动物。豹猫的体型与家猫大致相仿，但各亚种的差别比较大，例如印度尼西亚的亚种平均体长45厘米
+    ，尾长20厘米，而西伯利亚的亚种体长则达到60厘米，尾长40厘米。豹猫的毛皮也有很多种颜色：南方的豹猫为黄色，北方的则为银灰色。胸部及腹部是白色。豹猫的斑点一般为黑色。
+    豹猫是夜行动物，通常以啮齿类、鸟类、鱼类、爬行类及小型哺乳动物为食。除了交配季节外，它们一般为独处。豹猫（学名：Prionailurus bengalensis）：
+    是产于亚洲的猫科动物。豹猫的体型与家猫大致相仿，但各亚种的差别比较大，例如印度尼西亚的亚种平均体长45厘米，尾长20厘米，而西伯利亚的亚种体长则达
+    到60厘米，尾长40厘米。豹猫的毛皮也有很多种颜色：南方的豹猫为黄色，北方的则为银灰色。胸部及腹部是白色。豹猫的斑点一般为黑色。
+    豹猫是夜行动物，通常以啮齿类、鸟类、鱼类、爬行类及小型哺乳动物为食。除了交配季节外，它们一般为独处。豹猫（学名：Prionailurus bengalensis）：
+    ，尾长40厘米。豹猫的毛皮也有很多种颜色：南方的豹猫为黄色，北方的则为银灰色。胸部及腹部是白色。豹猫的斑点一般为黑色。
+    豹猫是夜行动物，通常以啮齿类、鸟类、鱼类、爬行类及小型哺乳动物为食。除了交配季节外，它们一般为独处。
+</div>
+
+<script>
+    //重要的知识点:可读写属性scrollTop;
+    //scrollTop垂直方向的滚动条！隐藏的高度!
+    //滚动条是有上限的， 能够到达的最大值是ele.scrollHeight-ele.clientHeight;
+    //scrollHeight:实际内容的高度+上padding
+    //ele.clientHeight:不包含隐藏内容的盒子真实高度。
+    //ele.scrollTop的值是从0到最大值之间，非法的赋值没有意义
+
+    var ele=document.getElementById('div1');
+    //文字的无缝滚动
+
+    /*(function(){
+        var val=ele.scrollTop;
+        ele.scrollTop++;
+        var val1=ele.scrollTop;
+        if(val==val1){
+            ele.scrollTop=0;
+        }
+        window.setTimeout(arguments.callee,15);//arguments.callee相当于函数名，也就是说它是函数本身的一个指向自身的指针。
+    })();*/
+
+    //来回倒着转
+   /* var direction=1;
+    (function(){
+        var val=ele.scrollTop;
+        ele.scrollTop+=direction;
+        var val1=ele.scrollTop;
+        if(val==val1){
+            direction*=-1;
+        }
+        window.setTimeout(arguments.callee,6);
+    })();*/
+
+    //总是往下走，但总是那一屏
+    /*var innerHTML=ele.innerHTML;
+    (function(){
+        var val=ele.scrollTop;
+        ele.scrollTop++;
+        var val1=ele.scrollTop;
+        if(val==val1){
+            ele.innerHTML+=innerHTML;
+        }
+        window.setTimeout(arguments.callee,6);
+    })();*/
+
+    var scrollHeight=ele.scrollHeight;
+    var innerHTML=ele.innerHTML;
+    ele.innerHTML+=innerHTML;
+    (function(){
+        ele.scrollTop++;
+        if(ele.scrollTop==scrollHeight){
+            ele.scrollTop=0;
+        }
+        window.setTimeout(arguments.callee,10);
+    })();
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

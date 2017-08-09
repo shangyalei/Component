@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            float: left;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height:25px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+<script>
+
+
+    var d=new Date;
+    d.setDate(1);
+    var n=1-d.getDay();//让当月的1号-1号是星期几，则是这个日历的其实位置
+    d.setDate(n);
+
+    for(var i=0;i<42;i++){
+        var oDiv=document.createElement('div');
+        oDiv.innerHTML=d.getDate();
+        document.body.appendChild(oDiv);
+        d.setDate(d.setDate()+1);
+    }
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

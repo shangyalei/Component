@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="div1"></div>
+
+<script>
+
+    function zero(value){
+        return value<10?"0"+value:value;
+    }
+
+    function countDown(){
+        var nowTime=new Date().getTime();
+        var endTime=new Date("2017/07/10 15:00:00").getTime();
+        var diffTime=endTime-nowTime;
+
+        var day=Math.floor(diffTime/(1000*60*60*24));
+        var dayHM=day*(1000*60*60*24);
+        var remain=diffTime-dayHM;
+
+        var hour=Math.floor(remain/(1000*60*60));
+
+        var hourHM=hour*(1000*60*60);
+
+        remain=remain-hourHM;
+
+        var minutes=Math.floor(remain/(1000*60));
+
+        var minutesHM=minutes*(1000*60);
+
+        remain=remain-minutesHM;
+
+        var second=Math.floor(remain/1000);
+
+        return zero(day)+"天"+zero(hour)+"时"+zero(minutes)+"分"+zero(second)+"秒";
+
+    }
+
+
+    var str=countDown();
+    document.body.innerHTML=str;
+
+    window.setInterval(function(){
+        var str=countDown();
+        document.body.innerHTML=str;
+
+    },1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

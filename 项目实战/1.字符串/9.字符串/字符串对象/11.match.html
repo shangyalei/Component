@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+    //match();方法以正则为参数。
+    //把正则匹配到的内容保存在数组里。
+    //如果没有匹配则返回null
+
+    var reg = /^[a-z]+$/;
+
+    var str1 = "zhufengpeixun";
+
+    var str2 = "0123456789";
+
+    var result1 = str1.match(reg);
+
+    console.log(result1);
+
+    var result2 = str2.match(reg);
+
+    console.log(result2);
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="lib/reset.min.css">
+    <style>
+        html,body{
+            width: 100%;
+            overflow-x: hidden;
+            color:#000;
+            font-size:14px;
+        }
+        html{
+            font-size:100px;
+        }
+        .header{
+            height: 1rem;
+            line-height:1rem;
+            background-color: darkgrey;
+        }
+        .header span{
+            float: left;
+            width: 25%;
+            text-align: center;
+        }
+        .content ul li{
+            height: .5rem;
+            line-height:.5rem;
+            border-bottom: .01rem dashed #dddddd;
+        }
+        .content li:last-child{
+            border-bottom: none;
+        }
+        .content li:nth-child(even){
+            background: #eee;
+        }
+        .content li span{
+            float: left;
+            width: 25%;
+            text-align: center;
+        }
+
+    </style>
+    <script>
+        var desW=640;
+        var winW=document.documentElement.clientWidth;
+        var ratio=winW/desW;
+
+        document.documentElement.style.fontSize=ratio*100+"px";
+
+
+    </script>
+</head>
+<body>
+
+<header class="header">
+    <h1>
+        <span>编号</span>
+        <span>姓名</span>
+        <span>性别</span>
+        <span>分数</span>
+    </h1>
+</header>
+<section class="content">
+    <ul>
+       <!-- <li>
+            <span>001</span>
+            <span>尚亚磊</span>
+            <span>男</span>
+            <span>100</span>
+        </li>
+        -->
+    </ul>
+</section>
+
+<script src="lib/ejs.min.js"></script>
+<script src="zepto.min.js"></script>
+<!-- 制作模板都是在script中做的 -->
+<script charset="utf-8" type="text/template" id="template">
+    <%$.each(matchData,function(index,item){%>
+    <li>
+        <span><%=item.id%></span>
+        <span><%=item.name%></span>
+        <span><%=item.sex==1?'女':'男'%></span>
+        <span><%=item.score%></span>
+    </li>
+    <%})%>
+</script>
+
+<script>
+
+    //有些公司的前后端是完全分离的，那么前端只需要
+    //获取后台数据接口，然后用JS绑定数据
+    //但不利于SEO优化，也就是网络爬虫，爬不到数据
+
+    //如果没有完全分离，那么数据绑定由它们绑定，这样一来
+    //它们绑定后，数据有可能乱，需要我们来样式，可能需要
+    //懂得后台的一些知识
+
+    //angular和vue总都提供了模板引擎
+
+    //ejs只是单纯的模板引擎
+
+    function callback(data){
+        //得到模板
+        var template=$('#template').html();
+        //向模板中提供数据 模板都是字符串拼接
+        var res=ejs.render(template,{matchData:data});
+        console.log(res);
+        //把拼接好的数据放到指定的容器内
+        $('.content>ul').html(res);
+    }
+
+    $.ajax({
+        url:'data.json',
+        type:'get',
+        dataType:'json',
+        cache:false,
+        success:callback
+    })
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

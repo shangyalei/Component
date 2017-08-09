@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var str = "name=尚亚磊&age=18&insert=code";
+
+    //转换成{name:"尚亚磊",age:8,interest:code}
+
+    console.log(str.split("&"));
+
+    var str2 = "name=尚亚磊";
+    var ary = str2.split("=");
+    console.log(str2.split("="));
+    var obj = {};
+    for (var i = 0; i < ary.length - 1; i++) {
+        obj[ary[i]] = ary[i + 1];
+    }
+
+    console.log(obj);
+
+    /**
+     *
+     * @param str {string}
+     */
+    function strToURL(str) {
+        var ary = str.split('&');
+        var obj = {};
+        for (var i = 0; i < ary.length; i++) {
+            var ary2 = ary[i].split("=");
+            obj[ary2[0]] = ary2[1];
+        }
+        return obj;
+    }
+
+    console.log(strToURL(str));
+
+    var ary1=[1,2,3,4];
+    var ary1=[1,2,3,4,5];
+
+    var a=0;
+    var a=1;
+
+    console.log(a);
+
+
+</script>
+
+
+</body>
+</html>

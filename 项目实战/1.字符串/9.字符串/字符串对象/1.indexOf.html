@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    //indexOf(str)返回字符串中参数字符串第一次出现的位置
+    //从左到右收索，且下标从0开始。
+    //如果没有匹配项，返回-1
+    var str = "zhufengpeixun";
+    var index1=str.indexOf("u");//结果是2
+    //从索引位置5开始，往右查找，结果是11
+    var index2=str.indexOf("u",5);
+
+    var index3=str.indexOf('d');//结果是-1，找不到字符串d
+
+    var index4=str.indexOf('pei',5);//结果是7
+
+    //注：indexOf()对大小写敏感
+
+</script>
+
+</body>
+</html>

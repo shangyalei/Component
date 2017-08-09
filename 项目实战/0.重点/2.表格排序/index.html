@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table,td,tr,th{
+            border-collapse: collapse;
+            border: 1px solid blue;
+            -webkit-user-select: none;
+        }
+        th{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+
+
+<table width="450" border="0" align="center">
+    <thead>
+    <th>姓名</th>
+    <th>数学</th>
+    <th>语文</th>
+    <th>英语</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>张三</td>
+        <td>73</td>
+        <td>88</td>
+        <td>90</td>
+    </tr>
+    <tr>
+        <td>李四</td>
+        <td>67</td>
+        <td>99</td>
+        <td>77</td>
+    </tr>
+    <tr>
+        <td>王五</td>
+        <td>57</td>
+        <td>78</td>
+        <td>79</td>
+    </tr>
+    <tr>
+        <td>赵麻子</td>
+        <td>47</td>
+        <td>68</td>
+        <td>63</td>
+    </tr>
+    <tr>
+        <td>孙六</td>
+        <td>93</td>
+        <td>73</td>
+        <td>55</td>
+    </tr>
+    <tr>
+        <td>马七</td>
+        <td>87</td>
+        <td>91</td>
+        <td>26</td>
+    </tr>
+    <tr>
+        <td>刘小二</td>
+        <td>60</td>
+        <td>56</td>
+        <td>47</td>
+    </tr>
+    <tr>
+        <td>魏发财</td>
+        <td>71</td>
+        <td>76</td>
+        <td>88</td>
+    </tr>
+    <tr>
+        <td>令不丁</td>
+        <td>69</td>
+        <td>44</td>
+        <td>64</td>
+    </tr>
+    </tbody>
+
+</table>
+
+<script src="Script.js"></script>
+<script>
+var oTable=dom.tagName('table')[0];
+console.log(oTable);
+var oThead=oTable.tHead;
+console.log(oThead);
+var oTbody=oTable.tBodies.item(0);
+console.log(oTbody);
+var oRows=oTbody.rows;
+console.log(oRows);
+
+var aRows=utils.domToArray(oRows);
+console.log(aRows);
+console.log(aRows[0].cells[0].innerHTML);
+
+function rowSort(i,key){
+    if(key.flag){
+        key.flag*=-1;
+    }else{
+        key.flag=1;
+    }
+    aRows.sort(function(a,b){
+       if(Number(a.cells[i].innerHTML)){
+           return key.flag*(a.cells[i].innerHTML-b.cells[i].innerHTML);
+       }else{
+           return key.flag*(a.cells[i].innerHTML.localeCompare(b.cells[i].innerHTML));
+       }
+    });
+
+    for(var n=0;n<aRows.length;n++){
+        oTbody.appendChild(aRows[n]);
+    }
+}
+
+var oThs=oThead.getElementsByTagName('th');
+console.log(oThs);
+
+for(var i=0;i<oThs.length;i++){
+    (function(i){
+        oThs[i].onclick=function(){
+            rowSort(i,this);
+        }
+
+    })(i);
+}
+
+var ary=[1,2,3,4,5,6];
+    ary.sort(function(a,b){
+        return a-b;
+    })
+
+
+
+
+</script>
+</body>
+</html>

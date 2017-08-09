@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #effect{
+            width: 340px;
+            height: 230px;
+            margin: 250px auto;
+            position: relative;
+        }
+        #effect img{
+            border:none;
+            position: absolute;
+            top:0;
+            left: 0;
+            -webkit-user-select: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="effect">
+    <img src="../images/image1.jpg" width="340" height="230" alt="">
+    <img src="../images/image2.jpg" width="340" height="230" alt="">
+    <img src="../images/image3.jpg" width="340" height="230" alt="">
+    <img src="../images/image4.jpg" width="340" height="230" alt="">
+    <img src="../images/image5.jpg" width="340" height="230" alt="">
+</div>
+
+<script src="../lib/animate.js"></script>
+<script>
+    var oEffect=document.getElementById('effect');
+    var oImgs=oEffect.getElementsByTagName('img');
+    var layer=4;
+    var zIndex=0;
+    var direc=[[-340,-230],[0,-230],[340,-230],[340,0],[340,230],[0,230],[-340,230],[-340,0]];
+
+    var preIndex=null;
+
+    function randomNum(){
+       return Math.floor(Math.random()*8);
+    }
+
+    oEffect.onclick=function(){
+        if(layer===-1){
+            layer=4;
+        }
+       var oImg=oImgs.item(layer--);
+
+       var n=Math.floor(Math.random()*8);
+
+       if(preIndex===null){
+           preIndex=n;
+       }else{
+           while (n===preIndex){
+               n=Math.floor(Math.random()*8);
+           }
+           preIndex=n;
+       }
+
+       var a=direc[n];
+
+
+       animate(oImg,{left:a[0],top:a[1],opacity:0},300,linear,function () {
+           this.style.top=0;
+           this.style.left=0;
+           this.style.opacity=1;
+           this.style.zIndex=--zIndex;
+       });
+    }
+
+
+
+</script>
+
+
+
+</body>
+</html>

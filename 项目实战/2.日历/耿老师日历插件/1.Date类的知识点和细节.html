@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /*
+     * Date()类
+     * 它对象是一个时间戳对象
+     * 获取页面所在电脑的事件
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * */
+
+
+    var d = new Date();//这样就创建了一个以客户端机器时间为准的时间戳对象
+
+    var year = d.getFullYear();//此方法没有兼容性
+    //var year2=date.getYear();//此方法存在兼容性
+
+    var month = d.getMonth()+1;//月份从零开始
+    var date = d.getDate();//几号
+    var day = d.getDay()+1;//星期几,从周日为0开始
+    var hour=d.getHours();
+    var minutes=d.getMinutes();
+    var seconds=d.getSeconds();
+    var ms=d.getTime();//从1970年1月1日
+    var ml=d.getMilliseconds();//当前这一秒钟的毫秒
+
+
+    //检测浏览器性能
+    //举例：生成一万个div所需时间
+
+//    for(var i=0;i<10000;i++){
+//        var oDiv=document.createElement('div');
+//        document.body.appendChild(oDiv);
+//    }
+
+    //注意：两个时间对象相减得到的也是一个毫秒差
+    //注意：每声明一个时间对象，都会生成一个新的时间戳
+//
+//    alert((new Date).getTime-ms);
+//    alert((new Date)-d);
+
+    //动态修改getDate()的值
+    //setDate();改变日(号)，一个月有可能31,30,28,29如若超了，则为下一月
+    //setDate();可以为负数，setDate(-6)：就是说从上个月的最后一个天减6
+
+    d.setDate(0);//小技巧 设置为0，得到为上个月最后一天
+
+    document.body.innerHTML=year+"-"+month+"-"+date+"-"+hour+"-"+minutes+"-"+seconds;
+
+    //动态修改月getMonth()的值
+    d.setMonth(3);//指定为3月
+    d.setMonth(4,1);//指定为4月1号
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

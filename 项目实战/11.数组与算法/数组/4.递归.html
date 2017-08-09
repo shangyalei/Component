@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /*
+    * 递归:当前函数自己调用自己执行
+    *
+    * */
+
+    //实现1-100之间，不能被3整除的数字相加
+    var res=null;
+    for(var i=0;i<=100;i++){
+        if(i%3!==0){
+            res+=i;
+        }
+    }
+    console.log(res);
+
+    //递归实现
+    function sum(n){
+        if(n===0){
+            return 0;
+        }
+        return n+sum(n-1);//100+sum(99)->100+99+sum(98)-->100+99+98+sum(97)...-->100+98+98+97+...+1+sum(0);
+    }
+    var res2=sum(100);
+    console.log(res2);
+
+
+
+    function sum2(n) {
+        if(n===0){
+            return 0;
+        }
+        if(n%3===0){//可以被3整除的话就不需要再累加了
+            return sum(n-1);
+        }
+        return n+sum(n-1);
+    }
+
+    //从1到10能被2整除的相乘
+
+    function sum3(n){
+        if(n===1){
+            return;
+        }
+        if(n%2!==0){
+            return sum3(n-1);
+        }
+        return n*sum3(n-1);
+    }
+
+    console.log(sum3(10));
+
+    //定时器和递归
+
+    var count=0;
+    var timer=window.setInterval(function () {
+        count++;
+        console.log(count);
+
+        if(count===10){
+            window.clearInterval(timer);
+        }
+
+    },1000);
+
+
+    //使用setTimeout
+    var timer2=null;
+    function move(){
+        window.clearTimeout(timer2);
+        count++;
+        console.log(1);
+        if(count===10){
+            return;
+        }
+        timer2=window.setTimeout(arguments.callee,1000);
+    }
+    move();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

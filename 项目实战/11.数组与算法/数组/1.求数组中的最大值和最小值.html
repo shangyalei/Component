@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+<script>
+
+
+    var a=[61,77,98,39,84,79,58];
+
+    var minNum=a[0];
+    for(var i=0;i<a.length;i++){
+        if(minNum>a[i]){
+            minNum=a[i];
+        }
+    }
+
+    alert(minNum);
+
+    //数学方法中有比较大小的方法
+    Math.min(3,5,6,7,8);
+    //技巧
+    Math.min.apply(null,a);
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

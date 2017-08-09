@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    //return 返回值 出口
+    //由于有闭包机制，才出现了return
+    //外面想用哪个值，我们就把哪个值返回
+
+    //只要是函数都有返回值，没有return
+    //默认的返回值是undefined
+    //有return返回的一定是其后面的值
+    //return后面没有跟任何返回值，则默认返回undefined
+
+    //return后面没有返回值，终止函数体中的运行
+
+    //return下面没能在有别的JS代码，因为执行不到了
+
+    //凡是var total=fn();这种写法就一定是取函数的返回值
+    //凡是var total=fn;这种写法就一定是取函数的内存地址
+
+
+
+
+
+
+    function sum(a,b){
+        var result=null;
+        result=a+b;
+        return result;
+    }
+
+    //用变量来接收
+    var result=sum(1,2);
+
+    console.log(result);
+
+
+    function fn() {
+        var total=300;
+    }
+    var total=fn();
+    console.log(total);
+
+
+    function fn2() {
+        var total=2;
+        return total*10;
+    }
+    console.log(fn2);
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

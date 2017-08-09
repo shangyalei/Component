@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    //arguments 函数自带的用来接收形参个数的一个集合
+    //不管写不写形参也不管是否出传递值，arguments
+    //始终都是存在的
+
+    //arguments是一个对象类型(集合),它是一个类数组
+    //以数字作为索引，索引从零开始递增
+
+    //arguments有length属性，表示由多少个形参
+
+    //arguments有callee属性，代表当前函数本身
+
+
+
+    function sum(a,b){
+        var total=null;
+        total=a+b;
+        console.log(total);
+        return total;
+    }
+    var total=sum(100,300);
+
+    //任意数求和,随便给我几个数(具体几个不知道)
+
+    function arg(){
+        console.dir(arguments);
+        console.log(typeof arguments);
+    }
+
+    arg(100,200,300,400);
+
+    function number(){
+        var result=null;
+        for(var i=0;i<arguments.length;i++){
+            result+=arguments[i];
+        }
+        return result;
+    }
+
+    console.log(number(100,200,300,400));
+
+
+    function number2(){
+        var result=null;
+        for(var i=0;i<arguments.length;i++){
+            var cur=Number(arguments[i]);
+            if(isNaN(cur)){
+                continue;
+            }
+            result+=cur;
+        }
+        return result;
+    }
+
+    console.log(10,20,"30","hello world");
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

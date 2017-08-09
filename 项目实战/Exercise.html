@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .change{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box"></div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li id="there">3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+
+<div id="div1" class="change">
+    <p>我是段落1。</p>
+    <p>我是段落2。</p>
+    <p class="change">我是段落3。</p>
+    <p class="aa">我是段落4。</p>
+    <p class="bb cc">我是段落5。</p>
+    <span>我是span元素</span>
+</div>
+
+
+<script src="lib/dom.js"></script>
+<script>
+
+
+var dom=new Dom;
+var ele=dom.tagName('div1','p');
+
+
+
+var obj=BOM.parseQueryStr(url);
+
+
+console.log(obj);
+
+
+</script>
+</body>
+</html>

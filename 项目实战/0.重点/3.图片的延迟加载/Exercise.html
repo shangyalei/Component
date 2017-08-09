@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #div1{
+            height: 5000px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div id="div1"></div>
+<img src="default.gif" realImg="http://img.ycwb.com/news/attachement/jpg/site2/20130928/001e907dcdbd13b0857f52.jpg" alt="">
+<img src="default.gif" realImg="http://img.ycwb.com/news/attachement/jpg/site2/20141013/448a5bb1211f15a5c0600a.jpg" alt="">
+<img src="default.gif" realImg="http://www.chinadaily.com.cn/hqjs/thrd/201503/b71fe98213c584625faa81de74c50eec.jpg" alt="">
+<img src="default.gif" realImg="http://ww2.sinaimg.cn/large/6ff56acagw1eojvvxoqktj20zk0nmn3i.jpg" alt="">
+
+
+
+<script>
+
+   function offset(ele){
+       var l=ele.offsetLeft;
+       var t=ele.offsetTop;
+       var p=ele.offsetParent;
+       while(p){
+           if(window.navigator.userAgent.indexOf('MSIE 8')>-1){
+               l+=p.offsetLeft;
+               t+=p.offsetTop;
+           }else{
+               l+=p.offsetLeft+p.clientLeft;
+               t+=p.offsetTop+p.clientTop;
+           }
+           p=p.offsetParent;
+       }
+
+       return {left:l,top:t}
+   }
+
+   var eles=document.getElementsByTagName('img');
+
+   window.onscroll=function(){
+       var winBottom=(document.documentElement.clientHeight||document.body.clientHeight)+(document.documentElement.scrollTop||document.body.scrollTop);
+
+       for(var i=0;i<eles.length;i++){
+           var ele=eles[i];
+           loadImg(ele,winBottom);
+       }
+
+   };
+
+
+   function loadImg(ele,winBottom){
+       var h=ele.offsetHeight+offset(ele).top;
+
+       if(!ele.loaded){
+           if(h<winBottom){
+               var realImg=ele.getAttribute('realImg');
+               var tempImg=new Image;
+               tempImg.src=realImg;
+               tempImg.onload=function(){
+                   ele.src=this.src;
+                   ele.loaded=true;
+               };
+               ele.src='o_loading.gif';
+           }
+       }
+   }
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

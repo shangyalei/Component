@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="dist/idangerous.swiper.css">
+    <style>
+        /*设置容器的的大小*/
+        .swiper-container{
+            width: 1000px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        /*这个是必须要设置的，让图片显示出来*/
+        .swiper-slide img{
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-pagination-bullet-active{
+            background:red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/banner1.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="img/banner2.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="img/banner3.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="img/banner4.jpg" alt=""></div>
+    </div>
+</div>
+<script src="dist/idangerous.swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        autoplay : 2000,//可选选项，自动滑动
+        loop : true, //可选选项，开启循环
+        effect:'fade'
+    })
+</script>
+
+</body>
+</html>

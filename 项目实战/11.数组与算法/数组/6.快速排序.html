@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var ary=[9,8,7,6,5,4,3,2,1];
+
+    function quick(ary) {
+        if(ary.length<=1){
+            return ary;
+        }
+        var index=Math.floor(ary.length/2);//基准点
+        var value=ary.splice(index,1)[0];//获取基准点那一项
+        var left=[];
+        var right=[];
+        for(var i=0;i<ary.length;i++){
+            var cur=ary[i];
+            if(cur<value){
+                left.push(cur);
+            }else{
+                right.push(cur);
+            }
+        }
+        return quick(left).concat([value],quick(right));
+    }
+
+    var res=quick(ary);
+
+    console.log(res);
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

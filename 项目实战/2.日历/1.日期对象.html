@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var date=new Date;
+    /*
+    * data为日期类(Date类)的对象
+    * data的常用方法
+    * 年：getFullYear();
+    * 月：getMonth()+1;国外是0-11月份
+    * 日：getDate();国外是0-6
+    * 周：getDay();
+    * 时：getHours();
+    * 分：getMinutes();
+    * 秒：getSeconds();
+    *
+    * 这些方法返回的都是Number类型
+    *
+    * */
+
+    //时间的常用方式就是：字符串拼接
+    var str=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+
+    document.body.innerHTML=str;
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

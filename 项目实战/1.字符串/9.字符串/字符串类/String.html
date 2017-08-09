@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+String:字符串类
+
+JS中的对象就是一个泛指，所有的东西都是对象，
+类是把这个泛指具体的细分:Array,String,Node...
+这些都是JS内置的类
+
+实例是类中的一个具体的东西
+每一个字符串都是String中的一个实例
+每一个数组都是Array中的一个实例
+每一个函数都是Function类中的一个实例
+...
+
+在JS中,双引号和单引号都是字符串的表示方式
+
+一个字符串是有多个字符组成的
+字符串也有length属性，获取字符串中字符的个数(字符串的长度)
+字符串中也有索引，也是0开始的。
+空格，换行也是一个字符
+
+1)chartAt(索引);
+获取指定索引位置的字符
+
+2)charCodeAt(索引);
+获取索引对应字符的ASCII码值
+
+3)substr(n,m)
+截取字符串 从索引n开始截取m个
+
+4)substring(n,m);
+截取字符串，不包含m
+
+
+5)slice(n,m);
+与substring方法一样
+它支持以负数为索引
+
+备注：以上3个方法只有n,没有m的时候，代表截取到末尾位置
+
+6)查找字符的索引
+indexOf(字符);指定字符第一次出现的位置
+lastIndexOf(字符);指定字符最后一次出现的位置
+没有找到返回-1
+
+
+7)大小写转换
+toUpperCase();
+toLowerCase();
+
+
+8)replace(old,new);
+替换
+
+9)将字符串按照指定的分隔符，才分成数组
+split(分隔符);
+无参数，则每一项都存储到数组
+有参数，除去分隔符，把其他的分别存储到数组里面
+返回的永远是一个数据
+和数组里面的join是相对应的
+
+10)match 正则常用的
+
+
+
+
+
+
+
+
+-->
+
+<script>
+
+    var str="hello world! welcome to china!";
+    for(var i=0;i<str.length;i++){
+        console.log(str.charAt(i));
+    }
+
+    if(str.indexOf('q')>-1){
+        console.log("代表包含q字符");
+    }
+
+    //所有的都替换为M
+    str.replace(/o/g,"欧");
+
+
+
+    var str2="1+2+3+4";
+    console.log(str2.split("+"));
+
+
+
+</script>
+
+
+
+</body>
+</html>
